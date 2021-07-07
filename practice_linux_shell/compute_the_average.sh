@@ -2,10 +2,15 @@
 
 #Problem: Given N integers, compute their average, rounded to three decimal places. 
 
-read array
-total=0
+# while read line
+# do
+#     array=("${array[@]}" $line)
+# done
+read n
+array=($(cat))
+sum=0
 for i in ${array[@]}
 do
-    let total+=$i
+    sum=$(($sum+$i))
 done
-printf "%.3f\n" $(echo "(${total}-${array[0]})/${array[0]}" |bc -l)
+printf "%.3f\n" $(echo "$sum/$n" |bc -l)
